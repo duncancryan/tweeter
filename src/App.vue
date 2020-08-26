@@ -11,6 +11,7 @@
 
 <script>
 import UserTweet from './components/UserTweet.vue'
+
 export default {
   name: 'app',
   data() {
