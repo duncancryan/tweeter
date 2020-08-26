@@ -3,6 +3,8 @@
   <header>
   <h1>Twitter</h1>
   <h2>Total Likes: {{totalLikes}}</h2>
+  <label for="filter">Likes over: </label>
+  <input type="number" v-model.number="filterAmount">
   </header>
 
   <form v-on:submit.prevent="tweet">
@@ -19,7 +21,7 @@
   </form>
 
   <ul>
-    <user-tweet v-for="(tweet, index) in tweets" :key="index" :tweet="tweet">
+    <user-tweet v-for="(tweet, index) in filteredTweets" :key="index" :tweet="tweet">
 
     </user-tweet>
   </ul>
@@ -66,7 +68,8 @@ export default {
       img: "",
       tweet: "",
       likes: 0
-    }
+    },
+    filterAmount: 0
   }
 },
 components: {
@@ -75,6 +78,9 @@ components: {
 computed: {
         totalLikes: function() {
             return this.tweets.reduce((total, tweet) => total + tweet.likes, 0)
+        }, 
+        filteredTweets: function() {
+            return this.tweets.filter((tweet) => tweet.likes >= this.filterAmount)
         }
     },
 methods: {

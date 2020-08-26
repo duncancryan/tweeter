@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li :class="trendingClass">
       <aside>
         <img :src="tweet.img" alt="User Avatar">
       </aside>
@@ -14,7 +14,14 @@
 <script>
 export default {
     name: "user-tweet",
-    props: ['tweet']
+    props: ['tweet'],
+    computed: {
+        trendingClass: function() {
+            if (this.tweet.likes > 10) {
+                return "trending"
+            }
+        }
+    }
     }
 </script>
 
@@ -35,5 +42,12 @@ section{
 }
 aside{
     margin: 10px;
+}
+.trending{
+    display: flex;
+    padding: 10px;
+    margin: 20px;
+    background-color: rgb(50, 130, 159);
+    color: rgb(232, 214, 17);
 }
 </style>
