@@ -2,7 +2,7 @@
 <div>
   <h1>Twitter</h1>
   <ul>
-    <user-tweet>
+    <user-tweet v-for="(tweet, index) in tweets" :key="index" :tweet="tweet">
 
     </user-tweet>
   </ul>
