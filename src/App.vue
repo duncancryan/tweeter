@@ -77,7 +77,22 @@ computed: {
             return this.tweets.reduce((total, tweet) => total + tweet.likes, 0)
         }
     },
-methods: 
+methods: {
+  tweet: function() {
+    this.tweets.unshift(this.newTweet);
+    this.tweets.forEach((tweet, i) => {
+      tweet.id = i +1;
+    })
+    this.newTweet = {
+      id: null,
+      name: "",
+      handle: "",
+      img: "",
+      tweet: "",
+      likes: 0
+    }
+  }
+}
 }
 </script>
 
