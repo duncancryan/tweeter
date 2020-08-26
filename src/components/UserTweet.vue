@@ -18,9 +18,7 @@ export default {
     props: ['tweet'],
     computed: {
         trendingClass: function() {
-            if (this.tweet.likes > 10) {
-                return "trending"
-            }
+            return this.tweet.likes > 10 ? 'trending' : 'not-trending'
         }
     }
     }
@@ -31,7 +29,7 @@ img{
     height: 100px;
     width: auto;
 }
-li{
+.not-trending{
     display: flex;
     padding: 10px;
     margin: 20px;
