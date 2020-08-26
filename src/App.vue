@@ -2,6 +2,7 @@
 <div>
   <header>
   <h1>Twitter</h1>
+  <h2>Total Likes: {{totalLikes}}</h2>
   </header>
   <ul>
     <user-tweet v-for="(tweet, index) in tweets" :key="index" :tweet="tweet">
@@ -48,8 +49,12 @@ export default {
 },
 components: {
   'user-tweet': UserTweet
-}
-
+}, 
+computed: {
+        totalLikes: function() {
+            return this.tweets.reduce((total, tweet) => total + tweet.likes, 0)
+        }
+    }
 }
 </script>
 
