@@ -8,6 +8,7 @@
       <p>{{tweet.tweet}}</p>
       <p>{{tweet.likes}} Likes</p>
       </section>
+      <button v-on:click="tweet.likes += 1">Like</button>
   </li>
 </template>
 
@@ -49,5 +50,10 @@ aside{
     margin: 20px;
     background-color: rgb(50, 130, 159);
     color: rgb(232, 214, 17);
+}
+button{
+    height: fit-content;
+    align-self: flex-end;
+    margin: 10px;
 }
 </style>
