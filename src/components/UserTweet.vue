@@ -3,9 +3,11 @@
       <aside>
         <img :src="tweet.img" alt="User Avatar">
       </aside>
+      <section>
       <p><b>{{ tweet.name }}</b> {{tweet.handle}}</p>
       <p>{{tweet.tweet}}</p>
-      <p>{{tweet.likes}}</p>
+      <p>{{tweet.likes}} Likes</p>
+      </section>
   </li>
 </template>
 
@@ -13,13 +15,25 @@
 export default {
     name: "user-tweet",
     props: ['tweet']
-
-}
+    }
 </script>
 
 <style scoped>
 img{
-    height: 30px;
+    height: 100px;
     width: auto;
+}
+li{
+    display: flex;
+    padding: 10px;
+    margin: 20px;
+    background-color: blanchedalmond;
+}
+section{
+    display: flex;
+    flex-direction: column;
+}
+aside{
+    margin: 10px;
 }
 </style>

@@ -1,6 +1,8 @@
 <template>
 <div>
+  <header>
   <h1>Twitter</h1>
+  </header>
   <ul>
     <user-tweet v-for="(tweet, index) in tweets" :key="index" :tweet="tweet">
 
@@ -52,5 +54,20 @@ components: {
 </script>
 
 <style>
+header {
+  background: rgb(81, 138, 198);
+  padding: 10px 20px;
+  color: rgb(210, 216, 96);
+  margin: 10px;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+div{
+  width: 60%;
+}
 
 </style>
