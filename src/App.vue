@@ -4,6 +4,20 @@
   <h1>Twitter</h1>
   <h2>Total Likes: {{totalLikes}}</h2>
   </header>
+
+  <form v-on:submit.prevent="tweet">
+    <h3>New Tweet</h3>
+    <input placeholder="Name" type="text" v-model="newTweet.name">
+    <input placeholder="Handle" type="text" v-model="newTweet.handle">
+    <select name="avatar" id="avatar" v-model="newTweet.img">
+      <option value="https://semantic-ui.com/images/avatar2/large/matthew.png">Avatar 1</option>
+      <option value="https://semantic-ui.com/images/avatar2/large/molly.png">Avatar 2</option>
+      <option value="https://semantic-ui.com/images/avatar2/large/elyse.png">Avatar 3</option>
+    </select>
+    <input placeholder="What's on your mind?" type="text" v-model="newTweet.tweet">
+    <input type="submit" value="Tweet">
+  </form>
+
   <ul>
     <user-tweet v-for="(tweet, index) in tweets" :key="index" :tweet="tweet">
 
@@ -44,7 +58,15 @@ export default {
         tweet: 'Beauty in the struggle, ugliness in the success.',
         likes: 18,
       }
-    ]
+    ],
+    newTweet: {
+      id: null,
+      name: "",
+      handle: "",
+      img: "",
+      tweet: "",
+      likes: 0
+    }
   }
 },
 components: {
@@ -54,7 +76,8 @@ computed: {
         totalLikes: function() {
             return this.tweets.reduce((total, tweet) => total + tweet.likes, 0)
         }
-    }
+    },
+methods: 
 }
 </script>
 
@@ -74,5 +97,6 @@ ul{
 div{
   width: 60%;
 }
+
 
 </style>
