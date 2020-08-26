@@ -1,5 +1,12 @@
 <template>
-  <li>{{tweet.tweet}}</li>
+  <li>
+      <aside>
+        <img :src="tweet.img" alt="User Avatar">
+      </aside>
+      <p><b>{{ tweet.name }}</b> {{tweet.handle}}</p>
+      <p>{{tweet.tweet}}</p>
+      <p>{{tweet.likes}}</p>
+  </li>
 </template>
 
 <script>
@@ -10,6 +17,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+img{
+    height: 30px;
+    width: auto;
+}
 </style>
