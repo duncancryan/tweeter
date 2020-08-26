@@ -11,6 +11,7 @@
 
 <script>
 import UserTweet from './components/UserTweet.vue'
+import { component } from 'vue/types/umd'
 
 export default {
   name: 'app',
@@ -43,6 +44,9 @@ export default {
       }
     ]
   }
+},
+components: {
+  'user-tweet': UserTweet
 }
 
 }
